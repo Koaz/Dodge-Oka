@@ -1,0 +1,27 @@
+module boolean (
+    // Inputs
+    input a[16],
+    input b[16],
+    input alufn[4], 
+    
+    //Output
+    output boolean[16]
+    
+  ) {
+
+  always {
+  boolean = a;                                      // else, output = a
+  
+  case (alufn){
+      b1000:
+        boolean = a&b;
+      b1110:
+        boolean = a|b;
+      b0110:
+        boolean = a^b;
+      b1010:
+        boolean = 1;
+    }     
+      
+  }
+}

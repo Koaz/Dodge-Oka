@@ -1,0 +1,2159 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -o
+mojo_top_0.twr -v 30 -l 30 mojo_top_0_routed.ncd mojo_top_0.pcf
+
+Design file:              mojo_top_0_routed.ncd
+Physical constraint file: mojo_top_0.pcf
+Device,package,speed:     xc6slx9,tqg144,C,-2 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report, limited to 30 items per constraint
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 214152 paths analyzed, 2470 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  15.493ns.
+--------------------------------------------------------------------------------
+Slack:                  4.507ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.405ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.CMUX    Tcinc                 0.289   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X14Y51.CX      net (fanout=3)        0.938   matrix_output/sprite/M_alu_adder_adder_out[14]
+    SLICE_X14Y51.CMUX    Tcxc                  0.192   matrix_output/sprite/N96
+                                                       matrix_output/sprite/n0014<15>9_SW5
+    SLICE_X9Y50.B1       net (fanout=1)        1.160   matrix_output/sprite/N94
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     15.405ns (5.940ns logic, 9.465ns route)
+                                                       (38.6% logic, 61.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  4.510ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.402ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.AMUX    Tcina                 0.210   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B1       net (fanout=2)        1.072   matrix_output/sprite/M_alu_adder_adder_out[12]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     15.402ns (5.928ns logic, 9.474ns route)
+                                                       (38.5% logic, 61.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  4.612ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.300ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.BMUX    Tcinb                 0.277   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B4       net (fanout=2)        0.903   matrix_output/sprite/M_alu_adder_adder_out[13]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     15.300ns (5.995ns logic, 9.305ns route)
+                                                       (39.2% logic, 60.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  4.797ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.115ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.DMUX    Tcind                 0.289   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X7Y50.B5       net (fanout=2)        0.800   matrix_output/sprite/M_alu_adder_adder_out[11]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     15.115ns (5.916ns logic, 9.199ns route)
+                                                       (39.1% logic, 60.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  4.838ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.127ns (Levels of Logic = 11)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/M_new_fsm_q_0_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y51.AQ      Tcko                  0.430   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X14Y51.B6      net (fanout=4)        1.455   matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.CMUX    Tcinc                 0.289   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X14Y51.CX      net (fanout=3)        0.938   matrix_output/sprite/M_alu_adder_adder_out[14]
+    SLICE_X14Y51.CMUX    Tcxc                  0.192   matrix_output/sprite/N96
+                                                       matrix_output/sprite/n0014<15>9_SW5
+    SLICE_X9Y50.B1       net (fanout=1)        1.160   matrix_output/sprite/N94
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     15.127ns (5.940ns logic, 9.187ns route)
+                                                       (39.3% logic, 60.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  4.841ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.124ns (Levels of Logic = 11)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/M_new_fsm_q_0_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y51.AQ      Tcko                  0.430   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X14Y51.B6      net (fanout=4)        1.455   matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.AMUX    Tcina                 0.210   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B1       net (fanout=2)        1.072   matrix_output/sprite/M_alu_adder_adder_out[12]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     15.124ns (5.928ns logic, 9.196ns route)
+                                                       (39.2% logic, 60.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  4.943ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.022ns (Levels of Logic = 11)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/M_new_fsm_q_0_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y51.AQ      Tcko                  0.430   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X14Y51.B6      net (fanout=4)        1.455   matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.BMUX    Tcinb                 0.277   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B4       net (fanout=2)        0.903   matrix_output/sprite/M_alu_adder_adder_out[13]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     15.022ns (5.995ns logic, 9.027ns route)
+                                                       (39.9% logic, 60.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  4.998ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.914ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M4       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.C2      net (fanout=2)        1.173   matrix_output/sprite/alu/alu_adder/n0028[4]
+    SLICE_X11Y48.C       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A111
+    SLICE_X10Y48.AX      net (fanout=1)        0.480   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[4]
+    SLICE_X10Y48.COUT    Taxcy                 0.281   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.CMUX    Tcinc                 0.289   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X14Y51.CX      net (fanout=3)        0.938   matrix_output/sprite/M_alu_adder_adder_out[14]
+    SLICE_X14Y51.CMUX    Tcxc                  0.192   matrix_output/sprite/N96
+                                                       matrix_output/sprite/n0014<15>9_SW5
+    SLICE_X9Y50.B1       net (fanout=1)        1.160   matrix_output/sprite/N94
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.914ns (5.933ns logic, 8.981ns route)
+                                                       (39.8% logic, 60.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  4.999ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.913ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.CMUX    Tcinc                 0.289   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X11Y49.B4      net (fanout=1)        0.831   matrix_output/sprite/M_alu_adder_adder_out[10]
+    SLICE_X11Y49.B       Tilo                  0.259   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/n0014<15>5
+    SLICE_X9Y50.B3       net (fanout=3)        0.802   matrix_output/sprite/n0014<15>4
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.913ns (5.916ns logic, 8.997ns route)
+                                                       (39.7% logic, 60.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.001ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.911ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M4       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.C2      net (fanout=2)        1.173   matrix_output/sprite/alu/alu_adder/n0028[4]
+    SLICE_X11Y48.C       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A111
+    SLICE_X10Y48.AX      net (fanout=1)        0.480   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[4]
+    SLICE_X10Y48.COUT    Taxcy                 0.281   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.AMUX    Tcina                 0.210   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B1       net (fanout=2)        1.072   matrix_output/sprite/M_alu_adder_adder_out[12]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.911ns (5.921ns logic, 8.990ns route)
+                                                       (39.7% logic, 60.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.046ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.866ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M2       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.D2      net (fanout=2)        1.015   matrix_output/sprite/alu/alu_adder/n0028[2]
+    SLICE_X11Y48.D       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A91
+    SLICE_X10Y47.CX      net (fanout=1)        0.643   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[2]
+    SLICE_X10Y47.COUT    Tcxcy                 0.134   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.CMUX    Tcinc                 0.289   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X14Y51.CX      net (fanout=3)        0.938   matrix_output/sprite/M_alu_adder_adder_out[14]
+    SLICE_X14Y51.CMUX    Tcxc                  0.192   matrix_output/sprite/N96
+                                                       matrix_output/sprite/n0014<15>9_SW5
+    SLICE_X9Y50.B1       net (fanout=1)        1.160   matrix_output/sprite/N94
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.866ns (5.877ns logic, 8.989ns route)
+                                                       (39.5% logic, 60.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.049ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.863ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M2       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.D2      net (fanout=2)        1.015   matrix_output/sprite/alu/alu_adder/n0028[2]
+    SLICE_X11Y48.D       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A91
+    SLICE_X10Y47.CX      net (fanout=1)        0.643   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[2]
+    SLICE_X10Y47.COUT    Tcxcy                 0.134   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.AMUX    Tcina                 0.210   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B1       net (fanout=2)        1.072   matrix_output/sprite/M_alu_adder_adder_out[12]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.863ns (5.865ns logic, 8.998ns route)
+                                                       (39.5% logic, 60.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.085ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.880ns (Levels of Logic = 11)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/M_new_fsm_q_0_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y51.AQ      Tcko                  0.430   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X13Y51.A5      net (fanout=4)        1.339   matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X13Y51.A       Tilo                  0.259   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/button_left/out4_SW0
+    SLICE_X13Y50.B1      net (fanout=1)        0.705   matrix_output/sprite/N84
+    SLICE_X13Y50.B       Tilo                  0.259   matrix_output/sprite/out1
+                                                       matrix_output/sprite/Mmux_M_alu_a11
+    DSP48_X0Y12.B0       net (fanout=4)        0.816   matrix_output/sprite/M_alu_a[0]
+    DSP48_X0Y12.M1       Tdspdo_B_M            3.894   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.CMUX    Tcinc                 0.289   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X14Y51.CX      net (fanout=3)        0.938   matrix_output/sprite/M_alu_adder_adder_out[14]
+    SLICE_X14Y51.CMUX    Tcxc                  0.192   matrix_output/sprite/N96
+                                                       matrix_output/sprite/n0014<15>9_SW5
+    SLICE_X9Y50.B1       net (fanout=1)        1.160   matrix_output/sprite/N94
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.880ns (6.593ns logic, 8.287ns route)
+                                                       (44.3% logic, 55.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.088ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.877ns (Levels of Logic = 11)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/M_new_fsm_q_0_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y51.AQ      Tcko                  0.430   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X13Y51.A5      net (fanout=4)        1.339   matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X13Y51.A       Tilo                  0.259   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/button_left/out4_SW0
+    SLICE_X13Y50.B1      net (fanout=1)        0.705   matrix_output/sprite/N84
+    SLICE_X13Y50.B       Tilo                  0.259   matrix_output/sprite/out1
+                                                       matrix_output/sprite/Mmux_M_alu_a11
+    DSP48_X0Y12.B0       net (fanout=4)        0.816   matrix_output/sprite/M_alu_a[0]
+    DSP48_X0Y12.M1       Tdspdo_B_M            3.894   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.AMUX    Tcina                 0.210   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B1       net (fanout=2)        1.072   matrix_output/sprite/M_alu_adder_adder_out[12]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.877ns (6.581ns logic, 8.296ns route)
+                                                       (44.2% logic, 55.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.103ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.809ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M4       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.C2      net (fanout=2)        1.173   matrix_output/sprite/alu/alu_adder/n0028[4]
+    SLICE_X11Y48.C       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A111
+    SLICE_X10Y48.AX      net (fanout=1)        0.480   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[4]
+    SLICE_X10Y48.COUT    Taxcy                 0.281   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.BMUX    Tcinb                 0.277   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B4       net (fanout=2)        0.903   matrix_output/sprite/M_alu_adder_adder_out[13]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.809ns (5.988ns logic, 8.821ns route)
+                                                       (40.4% logic, 59.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.128ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.837ns (Levels of Logic = 10)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/M_new_fsm_q_0_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y51.AQ      Tcko                  0.430   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X14Y51.B6      net (fanout=4)        1.455   matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.DMUX    Tcind                 0.289   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X7Y50.B5       net (fanout=2)        0.800   matrix_output/sprite/M_alu_adder_adder_out[11]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.837ns (5.916ns logic, 8.921ns route)
+                                                       (39.9% logic, 60.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.151ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.761ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M2       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.D2      net (fanout=2)        1.015   matrix_output/sprite/alu/alu_adder/n0028[2]
+    SLICE_X11Y48.D       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A91
+    SLICE_X10Y47.CX      net (fanout=1)        0.643   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[2]
+    SLICE_X10Y47.COUT    Tcxcy                 0.134   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.BMUX    Tcinb                 0.277   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B4       net (fanout=2)        0.903   matrix_output/sprite/M_alu_adder_adder_out[13]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.761ns (5.932ns logic, 8.829ns route)
+                                                       (40.2% logic, 59.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.155ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/M_new_fsm_q_1_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.756ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.054ns (0.661 - 0.715)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/M_new_fsm_q_1_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y50.BQ       Tcko                  0.525   matrix_output/sprite/M_new_fsm_q_1_1
+                                                       matrix_output/sprite/M_new_fsm_q_1_1
+    SLICE_X14Y51.B5      net (fanout=2)        0.989   matrix_output/sprite/M_new_fsm_q_1_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.CMUX    Tcinc                 0.289   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X14Y51.CX      net (fanout=3)        0.938   matrix_output/sprite/M_alu_adder_adder_out[14]
+    SLICE_X14Y51.CMUX    Tcxc                  0.192   matrix_output/sprite/N96
+                                                       matrix_output/sprite/n0014<15>9_SW5
+    SLICE_X9Y50.B1       net (fanout=1)        1.160   matrix_output/sprite/N94
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.756ns (6.035ns logic, 8.721ns route)
+                                                       (40.9% logic, 59.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.158ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/M_new_fsm_q_1_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.753ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.054ns (0.661 - 0.715)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/M_new_fsm_q_1_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y50.BQ       Tcko                  0.525   matrix_output/sprite/M_new_fsm_q_1_1
+                                                       matrix_output/sprite/M_new_fsm_q_1_1
+    SLICE_X14Y51.B5      net (fanout=2)        0.989   matrix_output/sprite/M_new_fsm_q_1_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.AMUX    Tcina                 0.210   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B1       net (fanout=2)        1.072   matrix_output/sprite/M_alu_adder_adder_out[12]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.753ns (6.023ns logic, 8.730ns route)
+                                                       (40.8% logic, 59.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.180ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.732ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.AMUX    Tcina                 0.210   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X11Y49.B1      net (fanout=1)        0.729   matrix_output/sprite/M_alu_adder_adder_out[8]
+    SLICE_X11Y49.B       Tilo                  0.259   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/n0014<15>5
+    SLICE_X9Y50.B3       net (fanout=3)        0.802   matrix_output/sprite/n0014<15>4
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.732ns (5.837ns logic, 8.895ns route)
+                                                       (39.6% logic, 60.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.182ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.730ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M5       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X8Y48.D4       net (fanout=2)        0.755   matrix_output/sprite/alu/alu_adder/n0028[5]
+    SLICE_X8Y48.D        Tilo                  0.254   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[5]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A121
+    SLICE_X10Y48.BX      net (fanout=1)        0.803   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[5]
+    SLICE_X10Y48.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.CMUX    Tcinc                 0.289   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X14Y51.CX      net (fanout=3)        0.938   matrix_output/sprite/M_alu_adder_adder_out[14]
+    SLICE_X14Y51.CMUX    Tcxc                  0.192   matrix_output/sprite/N96
+                                                       matrix_output/sprite/n0014<15>9_SW5
+    SLICE_X9Y50.B1       net (fanout=1)        1.160   matrix_output/sprite/N94
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.730ns (5.844ns logic, 8.886ns route)
+                                                       (39.7% logic, 60.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.185ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.727ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.BMUX    Tcinb                 0.277   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X11Y49.B2      net (fanout=1)        0.751   matrix_output/sprite/M_alu_adder_adder_out[5]
+    SLICE_X11Y49.B       Tilo                  0.259   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/n0014<15>5
+    SLICE_X9Y50.B3       net (fanout=3)        0.802   matrix_output/sprite/n0014<15>4
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.727ns (5.813ns logic, 8.914ns route)
+                                                       (39.5% logic, 60.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.185ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.727ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M5       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X8Y48.D4       net (fanout=2)        0.755   matrix_output/sprite/alu/alu_adder/n0028[5]
+    SLICE_X8Y48.D        Tilo                  0.254   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[5]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A121
+    SLICE_X10Y48.BX      net (fanout=1)        0.803   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[5]
+    SLICE_X10Y48.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.AMUX    Tcina                 0.210   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B1       net (fanout=2)        1.072   matrix_output/sprite/M_alu_adder_adder_out[12]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.727ns (5.832ns logic, 8.895ns route)
+                                                       (39.6% logic, 60.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.190ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.775ns (Levels of Logic = 11)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/M_new_fsm_q_0_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y51.AQ      Tcko                  0.430   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X13Y51.A5      net (fanout=4)        1.339   matrix_output/sprite/M_new_fsm_q_0_1
+    SLICE_X13Y51.A       Tilo                  0.259   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/button_left/out4_SW0
+    SLICE_X13Y50.B1      net (fanout=1)        0.705   matrix_output/sprite/N84
+    SLICE_X13Y50.B       Tilo                  0.259   matrix_output/sprite/out1
+                                                       matrix_output/sprite/Mmux_M_alu_a11
+    DSP48_X0Y12.B0       net (fanout=4)        0.816   matrix_output/sprite/M_alu_a[0]
+    DSP48_X0Y12.M1       Tdspdo_B_M            3.894   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.BMUX    Tcinb                 0.277   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B4       net (fanout=2)        0.903   matrix_output/sprite/M_alu_adder_adder_out[13]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.775ns (6.648ns logic, 8.127ns route)
+                                                       (45.0% logic, 55.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.233ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.679ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.CMUX    Tcinc                 0.289   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X11Y49.B4      net (fanout=1)        0.831   matrix_output/sprite/M_alu_adder_adder_out[10]
+    SLICE_X11Y49.B       Tilo                  0.259   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/n0014<15>5
+    SLICE_X11Y49.A6      net (fanout=3)        0.420   matrix_output/sprite/n0014<15>4
+    SLICE_X11Y49.A       Tilo                  0.259   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/Mmux_M_new_fsm_q[1]_GND_19_o_mux_22_OUT11_SW0
+    SLICE_X9Y50.A6       net (fanout=1)        0.378   matrix_output/sprite/N102
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.679ns (5.916ns logic, 8.763ns route)
+                                                       (40.3% logic, 59.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.233ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.679ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.CMUX    Tcinc                 0.289   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X15Y50.A6      net (fanout=3)        0.691   matrix_output/sprite/M_alu_adder_adder_out[14]
+    SLICE_X15Y50.A       Tilo                  0.259   matrix_output/sprite/M_regs_en
+                                                       matrix_output/sprite/n0014<15>9_SW1
+    SLICE_X9Y50.A3       net (fanout=1)        1.103   matrix_output/sprite/N88
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.679ns (5.748ns logic, 8.931ns route)
+                                                       (39.2% logic, 60.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.260ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/M_new_fsm_q_1_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.651ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.054ns (0.661 - 0.715)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/M_new_fsm_q_1_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y50.BQ       Tcko                  0.525   matrix_output/sprite/M_new_fsm_q_1_1
+                                                       matrix_output/sprite/M_new_fsm_q_1_1
+    SLICE_X14Y51.B5      net (fanout=2)        0.989   matrix_output/sprite/M_new_fsm_q_1_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.BMUX    Tcinb                 0.277   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B4       net (fanout=2)        0.903   matrix_output/sprite/M_alu_adder_adder_out[13]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.651ns (6.090ns logic, 8.561ns route)
+                                                       (41.6% logic, 58.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.280ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_1_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.669ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.016ns (0.324 - 0.340)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_1_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M1       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.B6      net (fanout=2)        0.843   matrix_output/sprite/alu/alu_adder/n0028[1]
+    SLICE_X11Y48.B       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A81
+    SLICE_X10Y47.BX      net (fanout=1)        1.291   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[1]
+    SLICE_X10Y47.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<3>
+    SLICE_X10Y48.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[3]
+    SLICE_X10Y48.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.CMUX    Tcinc                 0.289   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X15Y49.B6      net (fanout=3)        0.908   matrix_output/sprite/M_alu_adder_adder_out[14]
+    SLICE_X15Y49.B       Tilo                  0.259   matrix_output/sprite/N100
+                                                       matrix_output/sprite/M_new_fsm_q_1_glue_set_SW1
+    SLICE_X8Y50.B2       net (fanout=1)        1.153   matrix_output/sprite/N100
+    SLICE_X8Y50.B        Tilo                  0.254   matrix_output/sprite/M_new_fsm_q_1_1
+                                                       matrix_output/sprite/M_new_fsm_q_1_glue_set
+    SLICE_X8Y50.AX       net (fanout=2)        0.713   matrix_output/sprite/M_new_fsm_q_1_glue_set
+    SLICE_X8Y50.CLK      Tdick                 0.085   matrix_output/sprite/M_new_fsm_q_1_1
+                                                       matrix_output/sprite/M_new_fsm_q_1_2
+    -------------------------------------------------  ---------------------------
+    Total                                     14.669ns (5.714ns logic, 8.955ns route)
+                                                       (39.0% logic, 61.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.287ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.625ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M5       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X8Y48.D4       net (fanout=2)        0.755   matrix_output/sprite/alu/alu_adder/n0028[5]
+    SLICE_X8Y48.D        Tilo                  0.254   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[5]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A121
+    SLICE_X10Y48.BX      net (fanout=1)        0.803   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[5]
+    SLICE_X10Y48.COUT    Tbxcy                 0.197   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.COUT    Tbyp                  0.091   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X10Y50.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+    SLICE_X10Y50.BMUX    Tcinb                 0.277   matrix_output/sprite/M_alu_adder_adder_out[15]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_xor<15>
+    SLICE_X7Y50.B4       net (fanout=2)        0.903   matrix_output/sprite/M_alu_adder_adder_out[13]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.625ns (5.899ns logic, 8.726ns route)
+                                                       (40.3% logic, 59.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  5.288ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               matrix_output/sprite/regs/M_regs_q_7_1 (FF)
+  Destination:          matrix_output/sprite/M_new_fsm_q_0_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      14.624ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.053ns (0.661 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: matrix_output/sprite/regs/M_regs_q_7_1 to matrix_output/sprite/M_new_fsm_q_0_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y49.AQ      Tcko                  0.430   matrix_output/sprite/M_regs_q_7_2
+                                                       matrix_output/sprite/regs/M_regs_q_7_1
+    SLICE_X14Y51.B2      net (fanout=3)        1.733   matrix_output/sprite/M_regs_q_7_1
+    SLICE_X14Y51.B       Tilo                  0.235   matrix_output/sprite/N96
+                                                       matrix_output/sprite/button_right/out4_SW0
+    SLICE_X13Y53.B1      net (fanout=1)        0.973   matrix_output/sprite/N96
+    SLICE_X13Y53.B       Tilo                  0.259   matrix_output/sprite/out1_0
+                                                       matrix_output/sprite/Mmux_M_alu_b11
+    DSP48_X0Y12.A0       net (fanout=11)       1.332   matrix_output/sprite/M_alu_b[0]
+    DSP48_X0Y12.M4       Tdspdo_A_M            3.265   matrix_output/sprite/alu/alu_adder/Mmult_n0028
+                                                       matrix_output/sprite/alu/alu_adder/Mmult_n0028
+    SLICE_X11Y48.C2      net (fanout=2)        1.173   matrix_output/sprite/alu/alu_adder/n0028[4]
+    SLICE_X11Y48.C       Tilo                  0.259   matrix_output/M_sprite_fillup[168]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_A111
+    SLICE_X10Y48.AX      net (fanout=1)        0.480   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_A[4]
+    SLICE_X10Y48.COUT    Taxcy                 0.281   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<7>
+    SLICE_X10Y49.CIN     net (fanout=1)        0.003   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[7]
+    SLICE_X10Y49.DMUX    Tcind                 0.289   matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy[11]
+                                                       matrix_output/sprite/alu/alu_adder/Mmux_out3_rs_cy<11>
+    SLICE_X7Y50.B5       net (fanout=2)        0.800   matrix_output/sprite/M_alu_adder_adder_out[11]
+    SLICE_X7Y50.B        Tilo                  0.259   matrix_output/sprite/n0014<15>7
+                                                       matrix_output/sprite/n0014<15>8
+    SLICE_X9Y50.B2       net (fanout=2)        1.035   matrix_output/sprite/n0014<15>7
+    SLICE_X9Y50.B        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A5       net (fanout=1)        0.230   matrix_output/sprite/_n0109_inv
+    SLICE_X9Y50.A        Tilo                  0.259   matrix_output/sprite/M_new_fsm_q[1]
+                                                       matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.AX      net (fanout=1)        0.956   matrix_output/sprite/M_new_fsm_q_0_glue_set
+    SLICE_X13Y51.CLK     Tdick                 0.114   matrix_output/sprite/M_new_fsm_q_0_1
+                                                       matrix_output/sprite/M_new_fsm_q_0_1
+    -------------------------------------------------  ---------------------------
+    Total                                     14.624ns (5.909ns logic, 8.715ns route)
+                                                       (40.4% logic, 59.6% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 17.050ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.950ns (338.983MHz) (Tdspper_BREG_CARRYOUTREG)
+  Physical resource: matrix_output/blink/Madd_n0078_Madd1/CLK
+  Logical resource: matrix_output/blink/Madd_n0078_Madd1/CLK
+  Location pin: DSP48_X0Y10.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.334ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
+  Physical resource: clk_BUFGP/BUFG/I0
+  Logical resource: clk_BUFGP/BUFG/I0
+  Location pin: BUFGMUX_X2Y11.I0
+  Clock network: clk_BUFGP/IBUFG
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: matrix_output/sprite/button_right/M_sync_out/CLK
+  Logical resource: matrix_output/button_start/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X16Y52.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: matrix_output/sprite/button_right/M_sync_out/CLK
+  Logical resource: matrix_output/sprite/button_left/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X16Y52.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: matrix_output/sprite/button_right/M_sync_out/CLK
+  Logical resource: matrix_output/sprite/button_right/sync/Mshreg_M_pipe_q_1/CLK
+  Location pin: SLICE_X16Y52.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[3]/CLK
+  Logical resource: seg/ctr/M_ctr_q_0/CK
+  Location pin: SLICE_X0Y32.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[3]/CLK
+  Logical resource: seg/ctr/M_ctr_q_1/CK
+  Location pin: SLICE_X0Y32.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[3]/CLK
+  Logical resource: seg/ctr/M_ctr_q_2/CK
+  Location pin: SLICE_X0Y32.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[3]/CLK
+  Logical resource: seg/ctr/M_ctr_q_3/CK
+  Location pin: SLICE_X0Y32.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[7]/CLK
+  Logical resource: seg/ctr/M_ctr_q_4/CK
+  Location pin: SLICE_X0Y33.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[7]/CLK
+  Logical resource: seg/ctr/M_ctr_q_5/CK
+  Location pin: SLICE_X0Y33.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[7]/CLK
+  Logical resource: seg/ctr/M_ctr_q_6/CK
+  Location pin: SLICE_X0Y33.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[7]/CLK
+  Logical resource: seg/ctr/M_ctr_q_7/CK
+  Location pin: SLICE_X0Y33.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[11]/CLK
+  Logical resource: seg/ctr/M_ctr_q_8/CK
+  Location pin: SLICE_X0Y34.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[11]/CLK
+  Logical resource: seg/ctr/M_ctr_q_9/CK
+  Location pin: SLICE_X0Y34.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[11]/CLK
+  Logical resource: seg/ctr/M_ctr_q_10/CK
+  Location pin: SLICE_X0Y34.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[11]/CLK
+  Logical resource: seg/ctr/M_ctr_q_11/CK
+  Location pin: SLICE_X0Y34.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[15]/CLK
+  Logical resource: seg/ctr/M_ctr_q_12/CK
+  Location pin: SLICE_X0Y35.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[15]/CLK
+  Logical resource: seg/ctr/M_ctr_q_13/CK
+  Location pin: SLICE_X0Y35.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[15]/CLK
+  Logical resource: seg/ctr/M_ctr_q_14/CK
+  Location pin: SLICE_X0Y35.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: seg/ctr/M_ctr_q[15]/CLK
+  Logical resource: seg/ctr/M_ctr_q_15/CK
+  Location pin: SLICE_X0Y35.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: M_ctr_q_17/CLK
+  Logical resource: seg/ctr/M_ctr_q_16/CK
+  Location pin: SLICE_X0Y36.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: M_ctr_q_17/CLK
+  Logical resource: seg/ctr/M_ctr_q_17/CK
+  Location pin: SLICE_X0Y36.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: matrix_output/random/M_randseed_q[3]/CLK
+  Logical resource: matrix_output/random/M_randseed_q_0/CK
+  Location pin: SLICE_X8Y17.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: matrix_output/random/M_randseed_q[3]/CLK
+  Logical resource: matrix_output/random/M_randseed_q_1/CK
+  Location pin: SLICE_X8Y17.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: matrix_output/random/M_randseed_q[3]/CLK
+  Logical resource: matrix_output/random/M_randseed_q_2/CK
+  Location pin: SLICE_X8Y17.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: matrix_output/random/M_randseed_q[3]/CLK
+  Logical resource: matrix_output/random/M_randseed_q_3/CK
+  Location pin: SLICE_X8Y17.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: matrix_output/random/M_randseed_q[7]/CLK
+  Logical resource: matrix_output/random/M_randseed_q_4/CK
+  Location pin: SLICE_X8Y18.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: matrix_output/random/M_randseed_q[7]/CLK
+  Logical resource: matrix_output/random/M_randseed_q_5/CK
+  Location pin: SLICE_X8Y18.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: matrix_output/random/M_randseed_q[7]/CLK
+  Logical resource: matrix_output/random/M_randseed_q_6/CK
+  Location pin: SLICE_X8Y18.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |   15.493|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 214152 paths, 0 nets, and 2624 connections
+
+Design statistics:
+   Minimum period:  15.493ns{1}   (Maximum frequency:  64.545MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Tue Dec 03 17:37:54 2019 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 4564 MB
+
+
+

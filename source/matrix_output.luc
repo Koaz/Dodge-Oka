@@ -1,0 +1,488 @@
+module matrix_output (
+    input clk,              // 50MHz clock
+    input rst,            // reset button (active low)
+    output spi_miso,        // AVR SPI MISO
+    output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
+    output avr_rx,          // AVR RX (FPGA TX)
+    output out,
+    output score[10],
+    //output debug[24],
+    input startBtn[1],
+    input leftBtn,
+    input rightBtn,
+    output reset[1]
+
+  ) {
+  alu alu;
+  var i;
+  var j;  
+  sig start;
+  const B = 24b111111110000000000000000;      //This is actually blue
+  const R = 24b000000001111111100000000;      //This is actually red
+  const G = 24b000000000000000011111111;      //This is actually green
+  const P = 24b111111110000000011111111;     //This is actually purple
+  const BL = 24b000000000000000000000000;    //This is black
+  const W = 24b111111111111111111111111;    //This is white
+  .clk(clk) {
+          button_conditioner button_start;    //conditioning start button
+         edge_detector start_edge(#RISE(1),#FALL(0));
+    .rst(rst)
+    {
+      ws2812b blink; //instantiate the matrix module
+      sprite sprite(.button_l(leftBtn), .button_r(rightBtn),.startBtn(startBtn)); //attaching all the character buttons and the start button to the character
+      
+      fsm state = {IDLE,SHOWLIVES,MOVE,CHECKAND,CHECKSUM,DED,MOVEFASTER2,CHECKAND2,CHECKSUM2, 
+      STAGE2,MOVEFASTER3,CHECKAND3,CHECKSUM3, STAGE3,WIN,LIVE1,LIVE2,LIVE3,CHECKDED, SHOWDED}; //all the states, we have 3 stages, 
+                                                                                       //if u score more than a certain score then you will move on to a faster stage
+                                                                                       //each game has 3 lives 
+      randomNumGen random; //intialise the random number generator
+      dff regs[9][8]; //9 registers, 1 to take in the character, 8 to take the position of the lasers coming down
+      dff temp[8]; //temp registers to hold the boolean result of the alu function in the 3 different stages
+      dff temp2[8]; 
+      dff temp3[8];
+      dff score_reg[10]; //score register to keep track of score
+      dff lives[10];
+      //dff debug_reg[24]; 
+      dff counter1[26];  //Different counters with different timings to vary the speed of the lasers in the stages
+      dff counter2[26];
+      dff counter3[25];
+      dff counter4[25];
+      dff counter5[24];
+      dff counter6[24];
+
+      
+    }
+  }
+  
+  always {
+    button_start.in=startBtn;
+    start_edge.in=button_start.out;
+    start = start_edge.out;
+    spi_miso = bz;          // not using SPI
+    spi_channel = bzzzz;    // not using flags
+    avr_rx = bz;            // not using serial port
+    blink.update=1;
+    alu.a = 8b0;
+    alu.b = 8b0;
+    alu.alufn = 6b0;
+    
+    //Increment counter
+    counter1.d = counter1.q + 1;
+    counter2.d = counter2.q+1;
+    counter3.d = counter3.q+1;
+      counter4.d = counter4.q + 1;
+    counter5.d = counter5.q+1;
+    counter6.d = counter6.q+1;
+    //debug = debug_reg.q;
+    
+    score = score_reg.q;
+    reset = 0;
+    case (state.q){      
+      
+    
+      state.IDLE:  //idle state that will show istd, starting state of the game
+         blink.color[7:0]={
+          {B,R,R,B,B,B,G,B},
+          {R,B,R,B,B,B,G,B},
+          {B,R,R,B,B,B,G,B},
+          {G,G,G,B,B,B,G,B},
+          {G,B,B,B,B,G,G,G},
+          {G,G,G,B,B,R,R,R},
+          {B,B,G,B,B,B,R,B},
+          {G,G,G,B,B,R,R,R}
+        };
+          for (i=0;i<8;i++){
+             for(j= 0; j<8;j++){
+                regs.d[i][j] = 0;  //at the idle state we will clear all the registers
+            }   
+          }
+          reset=1;          //this is the reset output sent to mojo top to reset the the 7 seg display to 0000, when the game returns to the idle state
+          score_reg.d = 0; //at the idle state we will clear all the registers
+          lives.d = 0;     //at the idle state we will clear the lives register 
+          if(start){
+        
+            state.d= state.SHOWLIVES; //upon start button press change state to move state
+          }
+        else{
+            state.d= state.IDLE; //if not stay in idle state
+          }
+        
+      state.SHOWLIVES: //state to show your life bar
+       blink.color[7:0]={
+        
+           
+           {R,R,R,R,R,R,R,R},
+           {R,R,R,G,G,R,R,R},
+           {R,R,G,G,G,G,R,R},
+           {R,R,G,G,G,G,R,R},
+           {R,G,G,G,G,G,G,R},
+           {R,G,G,G,G,G,G,R},
+           {R,G,G,R,R,G,G,R},
+           {R,R,R,R,R,R,R,R}
+        };
+        
+             if(start){
+        
+            state.d= state.MOVE; //upon start button press change state to move state
+          }
+        else{
+            state.d= state.SHOWLIVES; //if not stay in idle state
+          }
+      state.MOVE:
+        if(counter1.q[25]){  //moving down, new "random" input every 1 second and move it down one reg/row every 1 second as well
+          counter1.d = 0;
+          regs.d[0] = random.out; //the first register willl take in the random number
+          for(i=1;i<8;i++){
+            for(j=0;j<8;j++){
+              regs.d[i][j] = regs.q[i-1][j]; //this is to send the 8bits down, to make it look like the laser is moving down
+            }
+          }
+        }
+        
+        for(i=0;i<8;i++){  //coloring the laser
+          for(j=0;j<8;j++){
+            if(regs.q[i][j] ){
+              blink.color[i][j] = R; 
+            } else {
+              blink.color[i][j] = B;
+            }
+          }
+        }
+                for(i=0;i<8;i++){ //coloring the sprite/character position
+          if(sprite.fillup[i] == G){
+            regs.d[8][i] = 1;
+            blink.color[7][i] = G;
+          }
+          else{
+            regs.d[8][i] = 0;
+          }
+        }
+        if(counter2.q[25]){ //to do a boolean check for every jump
+          counter2.d =0;
+          state.d= state.CHECKAND; //go to the check state
+        }
+      state.CHECKAND:
+          alu.a = regs.q[7][7:0]; //compare the last row of the laser against the position of the character to determine if its a hit 
+          //debug_reg.d[7:0] = regs.q[7][7:0];
+          //debug_reg.d[15:8] = regs.q[8][7:0];
+          alu.b = regs.q[8][7:0]; //position of the character
+          alu.alufn = 6b011000;
+          //debug_reg.d[23:16] = alu.alu_out;
+          temp.d = alu.alu_out; //store the bitwise boolean in a temp register
+          state.d = state.CHECKSUM;
+
+      state.CHECKSUM:
+        if (temp.q > 8b00000000){ //if its a hit end the game
+            alu.a = lives.q; 
+          alu.b = 1;
+          alu.alufn = 6b000000;
+          lives.d = alu.alu_out;
+          state.d = state.CHECKDED;
+        } else {
+          alu.a = score_reg.q; //using alu function to add 1 to the score everytime the charac survives a check
+          alu.b = 1;
+          alu.alufn = 6b000000;
+          score_reg.d = alu.alu_out;
+    
+          if(score_reg.q == 10b0000010000){state.d=state.STAGE2;} // 16 jumps, 9 on 7seg //if the score is 9 move to next stage
+          else{
+          state.d = state.MOVE;} //else continue current stage
+        }
+        
+      state.STAGE2: //show 2 in green, to indicate the start of stage 2
+       blink.color[7:0]={
+          {B,B,B,B,B,B,B,B},
+          {B,B,G,G,G,G,B,B},
+          {B,B,B,B,B,G,B,B},
+          {B,B,G,G,G,G,B,B},
+          {B,B,G,B,B,B,B,B},
+          {B,B,G,G,G,G,B,B},
+          {B,B,B,B,B,B,B,B},
+          {B,B,B,B,B,B,B,B}
+        };
+        
+          
+        
+       for (i=0;i<8;i++){         //clear the registers for the new stage
+             for(j= 0; j<8;j++){
+                regs.d[i][j] = 0;
+            }                                 
+          }
+        
+       if(start){
+            state.d= state.MOVEFASTER2; //go to the second the stage upon button press
+          }
+        else{
+            state.d= state.STAGE2;
+          }
+      
+
+      state.MOVEFASTER2:
+          if(counter3.q[24]){ //moving down, new "random" input //counter is twice the speed to send the laser down at twice the speed
+          counter3.d = 0;
+          regs.d[0] = random.out;
+          for(i=1;i<8;i++){
+            for(j=0;j<8;j++){
+              regs.d[i][j] = regs.q[i-1][j];
+            }
+          }
+        }
+        for(i=0;i<8;i++){  //coloring the laser
+          for(j=0;j<8;j++){
+            if(regs.q[i][j] ){
+              blink.color[i][j] = R;
+            } else {
+              blink.color[i][j] = B;
+            }
+          }
+        }
+        for(i=0;i<8;i++){ //coloring the sprite
+          if(sprite.fillup[i] == G){
+            regs.d[8][i] = 1;
+            blink.color[7][i] = G;
+          }
+          else{
+            regs.d[8][i] = 0;
+          }
+        }
+        if(counter4.q[24]){
+          counter4.d =0;
+       
+
+          state.d= state.CHECKAND2;
+        }
+        
+          state.CHECKAND2:
+          alu.a = regs.q[7][7:0];
+          //debug_reg.d[7:0] = regs.q[7][7:0];
+          //debug_reg.d[15:8] = regs.q[8][7:0];        
+          alu.b = regs.q[8][7:0];
+          alu.alufn = 6b011000;
+          //debug_reg.d[23:16] = alu.alu_out;
+          temp2.d = alu.alu_out;
+          state.d = state.CHECKSUM2;
+        
+      state.CHECKSUM2:
+        if (temp2.q > 8b00000000){
+          alu.a = lives.q;
+          alu.b = 1;
+          alu.alufn = 6b000000;
+          lives.d = alu.alu_out;
+          state.d = state.CHECKDED;
+        } else {
+          alu.a = score_reg.q;
+          alu.b = 1;
+          alu.alufn = 6b000000;
+          score_reg.d = alu.alu_out; 
+    
+               if(score_reg.q == 10b0001000000){state.d=state.STAGE3;} // 64jumps, 33 on 7seg //move to faster state when the score is at 33
+          else{
+          state.d = state.MOVEFASTER2;}
+        }
+         state.STAGE3: //show 3 in green to show the start start of stage 3
+         blink.color[7:0]={
+          {B,B,B,B,B,B,B,B},
+          {B,B,G,G,G,G,B,B},
+          {B,B,G,B,B,B,B,B},
+          {B,B,G,G,G,G,B,B},
+          {B,B,G,B,B,B,B,B},
+          {B,B,G,G,G,G,B,B},
+          {B,B,B,B,B,B,B,B},
+          {B,B,B,B,B,B,B,B}
+        };
+        
+             
+       for (i=0;i<8;i++){
+             for(j= 0; j<8;j++){
+                regs.d[i][j] = 0;
+            }   
+          }
+        
+       if(start){
+            state.d= state.MOVEFASTER3;
+          }
+        else{
+            state.d= state.STAGE3;
+          }
+        
+        
+              state.MOVEFASTER3:
+               if(counter5.q[23]){ //moving down, new "random" input //move down the lasers at twice the speed of stage 2
+          counter5.d = 0;
+          regs.d[0] = random.out;
+          for(i=1;i<8;i++){
+            for(j=0;j<8;j++){
+              regs.d[i][j] = regs.q[i-1][j];
+            }
+          }
+        }
+        for(i=0;i<8;i++){  //coloring the laser
+          for(j=0;j<8;j++){
+            if(regs.q[i][j] ){
+              blink.color[i][j] = R;
+            } else {
+              blink.color[i][j] = B;
+            }
+          }
+        }
+        for(i=0;i<8;i++){ //coloring the sprite
+          if(sprite.fillup[i] == G){
+            regs.d[8][i] = 1;
+            blink.color[7][i] = G;
+          }
+          else{
+            regs.d[8][i] = 0;
+          }
+        }
+        if(counter6.q[23]){
+          counter6.d =0;
+          state.d= state.CHECKAND3;
+        }
+        
+           state.CHECKAND3:
+          alu.a = regs.q[7][7:0];
+          //debug_reg.d[7:0] = regs.q[7][7:0];
+          //debug_reg.d[15:8] = regs.q[8][7:0];
+          alu.b = regs.q[8][7:0];
+          alu.alufn = 6b011000;
+          //debug_reg.d[23:16] = alu.alu_out;
+          temp3.d = alu.alu_out;
+          state.d = state.CHECKSUM3;
+        
+      state.CHECKSUM3:
+        if (temp3.q > 8b00000000){
+          alu.a = lives.q;
+          alu.b = 1;
+          alu.alufn = 6b000000;
+          lives.d = alu.alu_out;
+        } else {
+          alu.a = score_reg.q;
+          alu.b = 1;
+          alu.alufn = 6b000000;
+          score_reg.d = alu.alu_out;
+          if(score_reg.q == 10b0011111111){state.d=state.WIN;}//256 jumps, 128 on 7 seg as the winning condition
+          else{
+            state.d = state.MOVEFASTER3;
+          }
+      }
+        
+
+        state.CHECKDED: //state to check how many lives you have left
+        if(lives.q==b0000000011){state.d = state.SHOWDED;} //0 lives left
+        else if (lives.q==b0000000001){state.d= state.LIVE1;} //2 lives left
+        else if (lives.q==b0000000010){state.d= state.LIVE2;} //1 lives left
+        else if (lives.q==b011){state.d= state.LIVE3;}        
+        
+      state.LIVE1: //things to do if you have 2 lives left
+           
+           blink.color[7:0]={
+        
+           
+           {R,R,R,R,R,R,R,R},
+           {R,R,R,G,G,R,R,R},
+           {R,R,G,G,G,G,R,R},
+           {R,R,G,G,G,G,R,R},
+           {R,G,G,G,G,G,G,R},
+           {R,W,W,W,W,W,W,R},
+           {R,W,W,R,R,W,W,R},
+           {R,R,R,R,R,R,R,R}
+          
+        };
+                
+       for (i=0;i<8;i++){         //clear the registers before gooing back to old stage
+             for(j= 0; j<8;j++){
+                regs.d[i][j] = 0;
+            }                                 
+          }
+        
+        if(start){
+          if(score_reg.q < 10b0000010000){state.d = state.MOVE;}
+          else if(score_reg.q < 10b0001000000){state.d = state.MOVEFASTER2;}
+          else if(score_reg.q < 10b0011111111){state.d = state.MOVEFASTER3;}
+          }
+          else{state.d = state.LIVE1;}
+         
+        state.LIVE2: //things to do if you have 1 lives left
+            blink.color[7:0]={
+           {R,R,R,R,R,R,R,R},
+           {R,R,R,G,G,R,R,R},
+           {R,R,G,G,G,G,R,R},
+           {R,R,W,W,W,W,R,R},
+           {R,W,W,W,W,W,W,R},
+           {R,W,W,W,W,W,W,R},
+           {R,W,W,R,R,W,W,R},
+           {R,R,R,R,R,R,R,R}
+          
+        };
+                        
+       for (i=0;i<8;i++){         //clear the registers before going back to old stage
+             for(j= 0; j<8;j++){
+                regs.d[i][j] = 0;
+            }                                 
+          }
+        
+        if(start){
+          if(score_reg.q < 10b0000010000){state.d = state.MOVE;}
+          else if(score_reg.q < 10b0001000000){state.d = state.MOVEFASTER2;}
+          else if(score_reg.q < 10b0011111111){state.d = state.MOVEFASTER3;}
+          }
+          else{state.d = state.LIVE2;}
+        
+      state.SHOWDED:
+            blink.color[7:0]={
+           {R,R,R,R,R,R,R,R},
+           {R,R,R,W,W,R,R,R},
+           {R,R,W,W,W,W,R,R},
+           {R,R,W,W,W,W,R,R},
+           {R,W,W,W,W,W,W,R},
+           {R,W,W,W,W,W,W,R},
+           {R,W,W,R,R,W,W,R},
+           {R,R,R,R,R,R,R,R}
+          
+        };
+        
+         if(start){
+        state.d = state.DED;}
+          else{
+            state.d = state.SHOWDED;
+          }
+                        
+     
+        
+        state.WIN: //smiley face to show the win state
+        blink.color[7:0]={
+          {B,B,B,B,B,B,B,B},
+          {B,B,B,G,G,B,B,B},
+          {B,B,G,B,B,G,B,B},
+          {B,G,B,B,B,B,G,B},
+          {B,B,B,B,B,B,B,B},
+          {B,B,G,B,B,G,B,B},
+          {B,B,G,B,B,G,B,B},
+          {B,B,B,B,B,B,B,B}
+        };
+         if(start){
+        state.d = state.IDLE;}
+          else{
+            state.d = state.WIN;
+          }
+      
+      state.DED: // show oka in red, to indicate that you are ded
+        blink.color[7:0]={
+          {R,B,R,B,B,B,B,B},
+          {R,B,R,B,B,B,B,B},
+          {B,R,B,B,B,B,B,B},
+          {B,B,R,B,R,B,B,B},
+          {B,B,B,R,R,B,B,B},
+          {B,B,R,B,R,R,R,R},
+          {B,B,B,B,B,R,B,R},
+          {B,B,B,B,B,R,R,R}
+        };
+        if(start){
+        state.d = state.IDLE;}
+          else{
+            state.d = state.DED;
+          }
+    }
+    out=blink.led;
+  }
+}

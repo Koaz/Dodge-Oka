@@ -1,0 +1,489 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue Dec 03 17:37:33 2019
+//! **************************************************************************
+
+SCHEMATIC START;
+CONFIG VCCAUX = "3.3";
+COMP "clk" LOCATE = SITE "P56" LEVEL 1;
+COMP "io_button(1)" LOCATE = SITE "P140" LEVEL 1;
+COMP "io_button(2)" LOCATE = SITE "P139" LEVEL 1;
+COMP "io_button(4)" LOCATE = SITE "P138" LEVEL 1;
+COMP "cclk" LOCATE = SITE "P70" LEVEL 1;
+COMP "rightButton" LOCATE = SITE "P75" LEVEL 1;
+COMP "rst_n" LOCATE = SITE "P38" LEVEL 1;
+COMP "io_seg[0]" LOCATE = SITE "P5" LEVEL 1;
+COMP "io_seg[1]" LOCATE = SITE "P8" LEVEL 1;
+COMP "io_seg[2]" LOCATE = SITE "P144" LEVEL 1;
+COMP "io_seg[3]" LOCATE = SITE "P143" LEVEL 1;
+COMP "io_seg[4]" LOCATE = SITE "P2" LEVEL 1;
+COMP "io_seg[5]" LOCATE = SITE "P6" LEVEL 1;
+COMP "io_seg[6]" LOCATE = SITE "P1" LEVEL 1;
+COMP "io_seg[7]" LOCATE = SITE "P141" LEVEL 1;
+COMP "io_sel[0]" LOCATE = SITE "P9" LEVEL 1;
+COMP "io_sel[1]" LOCATE = SITE "P10" LEVEL 1;
+COMP "io_sel[2]" LOCATE = SITE "P7" LEVEL 1;
+COMP "io_sel[3]" LOCATE = SITE "P12" LEVEL 1;
+COMP "spi_sck" LOCATE = SITE "P43" LEVEL 1;
+COMP "avr_rx_busy" LOCATE = SITE "P39" LEVEL 1;
+COMP "avr_tx" LOCATE = SITE "P55" LEVEL 1;
+COMP "spi_ss" LOCATE = SITE "P48" LEVEL 1;
+COMP "outled" LOCATE = SITE "P142" LEVEL 1;
+COMP "leftButton" LOCATE = SITE "P117" LEVEL 1;
+COMP "spi_mosi" LOCATE = SITE "P44" LEVEL 1;
+COMP "startButton" LOCATE = SITE "P137" LEVEL 1;
+PIN matrix_output/blink/Madd_n0078_Madd1_pins<92> = BEL
+        "matrix_output/blink/Madd_n0078_Madd1" PINNAME CLK;
+PIN matrix_output/blink/Maddsub_M_row_q[2]_PWR_16_o_MuLt_0_OUT_pins<92> = BEL
+        "matrix_output/blink/Maddsub_M_row_q[2]_PWR_16_o_MuLt_0_OUT" PINNAME
+        CLK;
+TIMEGRP clk = BEL "matrix_output/M_temp_q_0" BEL "matrix_output/M_temp_q_1"
+        BEL "matrix_output/M_temp_q_2" BEL "matrix_output/M_temp_q_3" BEL
+        "matrix_output/M_temp_q_4" BEL "matrix_output/M_temp_q_5" BEL
+        "matrix_output/M_temp_q_6" BEL "matrix_output/M_temp_q_7" BEL
+        "matrix_output/M_counter6_q_0" BEL "matrix_output/M_counter6_q_1" BEL
+        "matrix_output/M_counter6_q_2" BEL "matrix_output/M_counter6_q_3" BEL
+        "matrix_output/M_counter6_q_4" BEL "matrix_output/M_counter6_q_5" BEL
+        "matrix_output/M_counter6_q_6" BEL "matrix_output/M_counter6_q_7" BEL
+        "matrix_output/M_counter6_q_8" BEL "matrix_output/M_counter6_q_9" BEL
+        "matrix_output/random/M_randseed_q_31" BEL
+        "matrix_output/random/M_randseed_q_30" BEL
+        "matrix_output/random/M_randseed_q_29" BEL
+        "matrix_output/random/M_randseed_q_28" BEL
+        "matrix_output/random/M_randseed_q_27" BEL
+        "matrix_output/random/M_randseed_q_26" BEL
+        "matrix_output/random/M_randseed_q_25" BEL
+        "matrix_output/random/M_randseed_q_24" BEL
+        "matrix_output/random/M_randseed_q_23" BEL
+        "matrix_output/random/M_randseed_q_22" BEL
+        "matrix_output/random/M_randseed_q_21" BEL
+        "matrix_output/random/M_randseed_q_20" BEL
+        "matrix_output/random/M_randseed_q_19" BEL
+        "matrix_output/random/M_randseed_q_18" BEL
+        "matrix_output/random/M_randseed_q_17" BEL
+        "matrix_output/random/M_randseed_q_16" BEL
+        "matrix_output/random/M_randseed_q_15" BEL
+        "matrix_output/random/M_randseed_q_14" BEL
+        "matrix_output/random/M_randseed_q_13" BEL
+        "matrix_output/random/M_randseed_q_12" BEL
+        "matrix_output/random/M_randseed_q_11" BEL
+        "matrix_output/random/M_randseed_q_10" BEL
+        "matrix_output/random/M_randseed_q_9" BEL
+        "matrix_output/random/M_randseed_q_8" BEL
+        "matrix_output/random/M_randseed_q_7" BEL
+        "matrix_output/random/M_randseed_q_6" BEL
+        "matrix_output/random/M_randseed_q_5" BEL
+        "matrix_output/random/M_randseed_q_4" BEL
+        "matrix_output/random/M_randseed_q_3" BEL
+        "matrix_output/random/M_randseed_q_2" BEL
+        "matrix_output/random/M_randseed_q_1" BEL
+        "matrix_output/random/M_randseed_q_0" BEL
+        "matrix_output/random/M_counter_q_25" BEL
+        "matrix_output/random/M_counter_q_24" BEL
+        "matrix_output/random/M_counter_q_23" BEL
+        "matrix_output/random/M_counter_q_22" BEL
+        "matrix_output/random/M_counter_q_21" BEL
+        "matrix_output/random/M_counter_q_20" BEL
+        "matrix_output/random/M_counter_q_19" BEL
+        "matrix_output/random/M_counter_q_18" BEL
+        "matrix_output/random/M_counter_q_17" BEL
+        "matrix_output/random/M_counter_q_16" BEL
+        "matrix_output/random/M_counter_q_15" BEL
+        "matrix_output/random/M_counter_q_14" BEL
+        "matrix_output/random/M_counter_q_13" BEL
+        "matrix_output/random/M_counter_q_12" BEL
+        "matrix_output/random/M_counter_q_11" BEL
+        "matrix_output/random/M_counter_q_10" BEL
+        "matrix_output/random/M_counter_q_9" BEL
+        "matrix_output/random/M_counter_q_8" BEL
+        "matrix_output/random/M_counter_q_7" BEL
+        "matrix_output/random/M_counter_q_6" BEL
+        "matrix_output/random/M_counter_q_5" BEL
+        "matrix_output/random/M_counter_q_4" BEL
+        "matrix_output/random/M_counter_q_3" BEL
+        "matrix_output/random/M_counter_q_2" BEL
+        "matrix_output/random/M_counter_q_1" BEL
+        "matrix_output/random/M_counter_q_0" BEL
+        "matrix_output/random/M_temp_q_6" BEL
+        "matrix_output/random/M_temp_q_4" BEL
+        "matrix_output/random/M_temp_q_2" BEL
+        "matrix_output/random/M_temp_q_0" BEL
+        "matrix_output/random/rng/M_y_q_31" BEL
+        "matrix_output/random/rng/M_y_q_30" BEL
+        "matrix_output/random/rng/M_y_q_29" BEL
+        "matrix_output/random/rng/M_y_q_28" BEL
+        "matrix_output/random/rng/M_y_q_27" BEL
+        "matrix_output/random/rng/M_y_q_26" BEL
+        "matrix_output/random/rng/M_y_q_25" BEL
+        "matrix_output/random/rng/M_y_q_24" BEL
+        "matrix_output/random/rng/M_y_q_23" BEL
+        "matrix_output/random/rng/M_y_q_22" BEL
+        "matrix_output/random/rng/M_y_q_21" BEL
+        "matrix_output/random/rng/M_y_q_20" BEL
+        "matrix_output/random/rng/M_y_q_19" BEL
+        "matrix_output/random/rng/M_y_q_18" BEL
+        "matrix_output/random/rng/M_y_q_17" BEL
+        "matrix_output/random/rng/M_y_q_16" BEL
+        "matrix_output/random/rng/M_y_q_15" BEL
+        "matrix_output/random/rng/M_y_q_14" BEL
+        "matrix_output/random/rng/M_y_q_13" BEL
+        "matrix_output/random/rng/M_y_q_12" BEL
+        "matrix_output/random/rng/M_y_q_11" BEL
+        "matrix_output/random/rng/M_y_q_10" BEL
+        "matrix_output/random/rng/M_y_q_9" BEL
+        "matrix_output/random/rng/M_y_q_8" BEL
+        "matrix_output/random/rng/M_y_q_7" BEL
+        "matrix_output/random/rng/M_y_q_6" BEL
+        "matrix_output/random/rng/M_y_q_5" BEL
+        "matrix_output/random/rng/M_y_q_4" BEL
+        "matrix_output/random/rng/M_y_q_3" BEL
+        "matrix_output/random/rng/M_y_q_2" BEL
+        "matrix_output/random/rng/M_y_q_1" BEL
+        "matrix_output/random/rng/M_y_q_0" BEL
+        "matrix_output/random/rng/M_z_q_31" BEL
+        "matrix_output/random/rng/M_z_q_30" BEL
+        "matrix_output/random/rng/M_z_q_29" BEL
+        "matrix_output/random/rng/M_z_q_28" BEL
+        "matrix_output/random/rng/M_z_q_27" BEL
+        "matrix_output/random/rng/M_z_q_26" BEL
+        "matrix_output/random/rng/M_z_q_25" BEL
+        "matrix_output/random/rng/M_z_q_24" BEL
+        "matrix_output/random/rng/M_z_q_23" BEL
+        "matrix_output/random/rng/M_z_q_22" BEL
+        "matrix_output/random/rng/M_z_q_21" BEL
+        "matrix_output/random/rng/M_z_q_20" BEL
+        "matrix_output/random/rng/M_z_q_19" BEL
+        "matrix_output/random/rng/M_z_q_18" BEL
+        "matrix_output/random/rng/M_z_q_17" BEL
+        "matrix_output/random/rng/M_z_q_16" BEL
+        "matrix_output/random/rng/M_z_q_15" BEL
+        "matrix_output/random/rng/M_z_q_14" BEL
+        "matrix_output/random/rng/M_z_q_13" BEL
+        "matrix_output/random/rng/M_z_q_12" BEL
+        "matrix_output/random/rng/M_z_q_11" BEL
+        "matrix_output/random/rng/M_z_q_10" BEL
+        "matrix_output/random/rng/M_z_q_9" BEL
+        "matrix_output/random/rng/M_z_q_8" BEL
+        "matrix_output/random/rng/M_z_q_7" BEL
+        "matrix_output/random/rng/M_z_q_6" BEL
+        "matrix_output/random/rng/M_z_q_5" BEL
+        "matrix_output/random/rng/M_z_q_4" BEL
+        "matrix_output/random/rng/M_z_q_3" BEL
+        "matrix_output/random/rng/M_z_q_2" BEL
+        "matrix_output/random/rng/M_z_q_1" BEL
+        "matrix_output/random/rng/M_z_q_0" BEL
+        "matrix_output/random/rng/M_w_q_31" BEL
+        "matrix_output/random/rng/M_w_q_30" BEL
+        "matrix_output/random/rng/M_w_q_29" BEL
+        "matrix_output/random/rng/M_w_q_28" BEL
+        "matrix_output/random/rng/M_w_q_27" BEL
+        "matrix_output/random/rng/M_w_q_26" BEL
+        "matrix_output/random/rng/M_w_q_25" BEL
+        "matrix_output/random/rng/M_w_q_24" BEL
+        "matrix_output/random/rng/M_w_q_23" BEL
+        "matrix_output/random/rng/M_w_q_22" BEL
+        "matrix_output/random/rng/M_w_q_21" BEL
+        "matrix_output/random/rng/M_w_q_20" BEL
+        "matrix_output/random/rng/M_w_q_19" BEL
+        "matrix_output/random/rng/M_w_q_18" BEL
+        "matrix_output/random/rng/M_w_q_17" BEL
+        "matrix_output/random/rng/M_w_q_16" BEL
+        "matrix_output/random/rng/M_w_q_15" BEL
+        "matrix_output/random/rng/M_w_q_14" BEL
+        "matrix_output/random/rng/M_w_q_13" BEL
+        "matrix_output/random/rng/M_w_q_12" BEL
+        "matrix_output/random/rng/M_w_q_11" BEL
+        "matrix_output/random/rng/M_w_q_10" BEL
+        "matrix_output/random/rng/M_w_q_9" BEL
+        "matrix_output/random/rng/M_w_q_8" BEL
+        "matrix_output/random/rng/M_w_q_7" BEL
+        "matrix_output/random/rng/M_w_q_6" BEL
+        "matrix_output/random/rng/M_w_q_5" BEL
+        "matrix_output/random/rng/M_w_q_4" BEL
+        "matrix_output/random/rng/M_w_q_3" BEL
+        "matrix_output/random/rng/M_w_q_2" BEL
+        "matrix_output/random/rng/M_w_q_1" BEL
+        "matrix_output/random/rng/M_w_q_0" BEL
+        "matrix_output/random/rng/M_x_q_31" BEL
+        "matrix_output/random/rng/M_x_q_30" BEL
+        "matrix_output/random/rng/M_x_q_29" BEL
+        "matrix_output/random/rng/M_x_q_28" BEL
+        "matrix_output/random/rng/M_x_q_27" BEL
+        "matrix_output/random/rng/M_x_q_26" BEL
+        "matrix_output/random/rng/M_x_q_25" BEL
+        "matrix_output/random/rng/M_x_q_24" BEL
+        "matrix_output/random/rng/M_x_q_23" BEL
+        "matrix_output/random/rng/M_x_q_22" BEL
+        "matrix_output/random/rng/M_x_q_21" BEL
+        "matrix_output/random/rng/M_x_q_20" BEL
+        "matrix_output/random/rng/M_x_q_19" BEL
+        "matrix_output/random/rng/M_x_q_18" BEL
+        "matrix_output/random/rng/M_x_q_17" BEL
+        "matrix_output/random/rng/M_x_q_16" BEL
+        "matrix_output/random/rng/M_x_q_15" BEL
+        "matrix_output/random/rng/M_x_q_14" BEL
+        "matrix_output/random/rng/M_x_q_13" BEL
+        "matrix_output/random/rng/M_x_q_12" BEL
+        "matrix_output/random/rng/M_x_q_11" BEL
+        "matrix_output/random/rng/M_x_q_10" BEL
+        "matrix_output/random/rng/M_x_q_9" BEL
+        "matrix_output/random/rng/M_x_q_8" BEL
+        "matrix_output/random/rng/M_x_q_7" BEL
+        "matrix_output/random/rng/M_x_q_6" BEL
+        "matrix_output/random/rng/M_x_q_5" BEL
+        "matrix_output/random/rng/M_x_q_4" BEL
+        "matrix_output/random/rng/M_x_q_3" BEL
+        "matrix_output/random/rng/M_x_q_2" BEL
+        "matrix_output/random/rng/M_x_q_1" BEL
+        "matrix_output/random/rng/M_x_q_0" BEL "matrix_output/M_regs_q_10" BEL
+        "matrix_output/M_regs_q_12" BEL "matrix_output/M_regs_q_13" BEL
+        "matrix_output/M_regs_q_14" BEL "matrix_output/M_regs_q_20" BEL
+        "matrix_output/M_regs_q_16" BEL "matrix_output/M_regs_q_21" BEL
+        "matrix_output/M_regs_q_17" BEL "matrix_output/M_regs_q_22" BEL
+        "matrix_output/M_regs_q_18" BEL "matrix_output/M_regs_q_24" BEL
+        "matrix_output/M_regs_q_25" BEL "matrix_output/M_regs_q_30" BEL
+        "matrix_output/M_regs_q_26" BEL "matrix_output/M_regs_q_32" BEL
+        "matrix_output/M_regs_q_28" BEL "matrix_output/M_regs_q_33" BEL
+        "matrix_output/M_regs_q_34" BEL "matrix_output/M_regs_q_29" BEL
+        "matrix_output/M_regs_q_40" BEL "matrix_output/M_regs_q_36" BEL
+        "matrix_output/M_regs_q_41" BEL "matrix_output/M_regs_q_37" BEL
+        "matrix_output/M_regs_q_42" BEL "matrix_output/M_regs_q_38" BEL
+        "matrix_output/M_regs_q_44" BEL "matrix_output/M_regs_q_50" BEL
+        "matrix_output/M_regs_q_45" BEL "matrix_output/M_regs_q_46" BEL
+        "matrix_output/M_regs_q_52" BEL "matrix_output/M_regs_q_53" BEL
+        "matrix_output/M_regs_q_48" BEL "matrix_output/M_regs_q_49" BEL
+        "matrix_output/M_regs_q_54" BEL "matrix_output/M_regs_q_60" BEL
+        "matrix_output/M_regs_q_56" BEL "matrix_output/M_regs_q_61" BEL
+        "matrix_output/M_regs_q_57" BEL "matrix_output/M_regs_q_62" BEL
+        "matrix_output/M_regs_q_58" BEL "matrix_output/M_regs_q_64" BEL
+        "matrix_output/M_regs_q_70" BEL "matrix_output/M_regs_q_65" BEL
+        "matrix_output/M_regs_q_66" BEL "matrix_output/M_regs_q_71" BEL
+        "matrix_output/M_regs_q_67" BEL "matrix_output/M_regs_q_68" BEL
+        "matrix_output/M_regs_q_69" BEL "matrix_output/M_counter4_q_0" BEL
+        "matrix_output/M_counter4_q_1" BEL "matrix_output/M_counter4_q_2" BEL
+        "matrix_output/M_counter4_q_3" BEL "matrix_output/M_counter4_q_4" BEL
+        "matrix_output/M_counter4_q_5" BEL "matrix_output/M_counter4_q_6" BEL
+        "matrix_output/M_counter4_q_7" BEL "matrix_output/M_counter4_q_8" BEL
+        "matrix_output/M_counter4_q_9" PIN
+        "matrix_output/blink/Madd_n0078_Madd1_pins<92>" BEL
+        "matrix_output/blink/M_pixel_ctr_q_7" BEL
+        "matrix_output/blink/M_pixel_ctr_q_6" BEL
+        "matrix_output/blink/M_pixel_ctr_q_5" BEL
+        "matrix_output/blink/M_pixel_ctr_q_4" BEL
+        "matrix_output/blink/M_pixel_ctr_q_3" BEL
+        "matrix_output/blink/M_pixel_ctr_q_2" BEL
+        "matrix_output/blink/M_pixel_ctr_q_1" BEL
+        "matrix_output/blink/M_pixel_ctr_q_0" BEL
+        "matrix_output/blink/M_rst_ctr_q_11" BEL
+        "matrix_output/blink/M_rst_ctr_q_10" BEL
+        "matrix_output/blink/M_rst_ctr_q_9" BEL
+        "matrix_output/blink/M_rst_ctr_q_8" BEL
+        "matrix_output/blink/M_rst_ctr_q_7" BEL
+        "matrix_output/blink/M_rst_ctr_q_6" BEL
+        "matrix_output/blink/M_rst_ctr_q_5" BEL
+        "matrix_output/blink/M_rst_ctr_q_4" BEL
+        "matrix_output/blink/M_rst_ctr_q_3" BEL
+        "matrix_output/blink/M_rst_ctr_q_2" BEL
+        "matrix_output/blink/M_rst_ctr_q_1" BEL
+        "matrix_output/blink/M_rst_ctr_q_0" BEL
+        "matrix_output/blink/M_ctr_q_5" BEL "matrix_output/blink/M_ctr_q_4"
+        BEL "matrix_output/blink/M_ctr_q_3" BEL
+        "matrix_output/blink/M_ctr_q_2" BEL "matrix_output/blink/M_ctr_q_1"
+        BEL "matrix_output/blink/M_ctr_q_0" BEL
+        "matrix_output/blink/M_bit_ctr_q_4" BEL
+        "matrix_output/blink/M_bit_ctr_q_3" BEL
+        "matrix_output/blink/M_bit_ctr_q_2" BEL
+        "matrix_output/blink/M_bit_ctr_q_1" BEL
+        "matrix_output/blink/M_bit_ctr_q_0" PIN
+        "matrix_output/blink/Maddsub_M_row_q[2]_PWR_16_o_MuLt_0_OUT_pins<92>"
+        BEL "matrix_output/blink/M_state_q" BEL "matrix_output/M_temp3_q_0"
+        BEL "matrix_output/M_temp3_q_1" BEL "matrix_output/M_temp3_q_2" BEL
+        "matrix_output/M_temp3_q_3" BEL "matrix_output/M_temp3_q_4" BEL
+        "matrix_output/M_temp3_q_5" BEL "matrix_output/M_temp3_q_6" BEL
+        "matrix_output/M_temp3_q_7" BEL
+        "matrix_output/button_start/M_ctr_q_19" BEL
+        "matrix_output/button_start/M_ctr_q_18" BEL
+        "matrix_output/button_start/M_ctr_q_17" BEL
+        "matrix_output/button_start/M_ctr_q_16" BEL
+        "matrix_output/button_start/M_ctr_q_15" BEL
+        "matrix_output/button_start/M_ctr_q_14" BEL
+        "matrix_output/button_start/M_ctr_q_13" BEL
+        "matrix_output/button_start/M_ctr_q_12" BEL
+        "matrix_output/button_start/M_ctr_q_11" BEL
+        "matrix_output/button_start/M_ctr_q_10" BEL
+        "matrix_output/button_start/M_ctr_q_9" BEL
+        "matrix_output/button_start/M_ctr_q_8" BEL
+        "matrix_output/button_start/M_ctr_q_7" BEL
+        "matrix_output/button_start/M_ctr_q_6" BEL
+        "matrix_output/button_start/M_ctr_q_5" BEL
+        "matrix_output/button_start/M_ctr_q_4" BEL
+        "matrix_output/button_start/M_ctr_q_3" BEL
+        "matrix_output/button_start/M_ctr_q_2" BEL
+        "matrix_output/button_start/M_ctr_q_1" BEL
+        "matrix_output/button_start/M_ctr_q_0" BEL
+        "matrix_output/button_start/sync/M_pipe_q_1" BEL
+        "matrix_output/button_start/sync/Mshreg_M_pipe_q_1" BEL
+        "matrix_output/M_counter2_q_0" BEL "matrix_output/M_counter2_q_1" BEL
+        "matrix_output/M_counter2_q_2" BEL "matrix_output/M_counter2_q_3" BEL
+        "matrix_output/M_counter2_q_4" BEL "matrix_output/M_counter2_q_5" BEL
+        "matrix_output/M_counter2_q_6" BEL "matrix_output/M_counter2_q_7" BEL
+        "matrix_output/M_counter2_q_8" BEL "matrix_output/M_counter2_q_9" BEL
+        "matrix_output/M_lives_q_0" BEL "matrix_output/M_lives_q_1" BEL
+        "matrix_output/M_lives_q_2" BEL "matrix_output/M_lives_q_3" BEL
+        "matrix_output/M_lives_q_4" BEL "matrix_output/M_lives_q_5" BEL
+        "matrix_output/M_lives_q_6" BEL "matrix_output/M_lives_q_7" BEL
+        "matrix_output/M_lives_q_8" BEL "matrix_output/M_lives_q_9" BEL
+        "matrix_output/start_edge/M_last_q" BEL
+        "matrix_output/sprite/M_new_fsm_q_1" BEL
+        "matrix_output/sprite/M_new_fsm_q_0" BEL
+        "matrix_output/sprite/M_new_fsm_q_1_1" BEL
+        "matrix_output/sprite/M_new_fsm_q_0_1" BEL
+        "matrix_output/sprite/M_new_fsm_q_1_2" BEL
+        "matrix_output/sprite/regs/M_regs_q_7" BEL
+        "matrix_output/sprite/regs/M_regs_q_6" BEL
+        "matrix_output/sprite/regs/M_regs_q_5" BEL
+        "matrix_output/sprite/regs/M_regs_q_4" BEL
+        "matrix_output/sprite/regs/M_regs_q_3" BEL
+        "matrix_output/sprite/regs/M_regs_q_2" BEL
+        "matrix_output/sprite/regs/M_regs_q_1" BEL
+        "matrix_output/sprite/regs/M_regs_q_0" BEL
+        "matrix_output/sprite/regs/M_regs_q_0_1" BEL
+        "matrix_output/sprite/regs/M_regs_q_7_1" BEL
+        "matrix_output/sprite/regs/M_regs_q_0_2" BEL
+        "matrix_output/sprite/regs/M_regs_q_7_2" BEL
+        "matrix_output/sprite/right_edge/M_last_q" BEL
+        "matrix_output/sprite/left_edge/M_last_q" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_19" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_18" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_17" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_16" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_15" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_14" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_13" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_12" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_11" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_10" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_9" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_8" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_7" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_6" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_5" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_4" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_3" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_2" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_1" BEL
+        "matrix_output/sprite/button_left/M_ctr_q_0" BEL
+        "matrix_output/sprite/button_left/sync/M_pipe_q_1" BEL
+        "matrix_output/sprite/button_left/sync/Mshreg_M_pipe_q_1" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_19" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_18" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_17" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_16" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_15" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_14" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_13" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_12" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_11" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_10" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_9" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_8" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_7" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_6" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_5" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_4" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_3" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_2" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_1" BEL
+        "matrix_output/sprite/button_right/M_ctr_q_0" BEL
+        "matrix_output/sprite/button_right/sync/M_pipe_q_1" BEL
+        "matrix_output/sprite/button_right/sync/Mshreg_M_pipe_q_1" BEL
+        "matrix_output/M_score_reg_q_0" BEL "matrix_output/M_score_reg_q_1"
+        BEL "matrix_output/M_score_reg_q_2" BEL
+        "matrix_output/M_score_reg_q_3" BEL "matrix_output/M_score_reg_q_4"
+        BEL "matrix_output/M_score_reg_q_5" BEL
+        "matrix_output/M_score_reg_q_6" BEL "matrix_output/M_score_reg_q_7"
+        BEL "matrix_output/M_score_reg_q_8" BEL
+        "matrix_output/M_score_reg_q_9" BEL "matrix_output/M_counter2_q_10"
+        BEL "matrix_output/M_counter2_q_11" BEL
+        "matrix_output/M_counter2_q_12" BEL "matrix_output/M_counter2_q_13"
+        BEL "matrix_output/M_counter2_q_14" BEL
+        "matrix_output/M_counter2_q_20" BEL "matrix_output/M_counter2_q_15"
+        BEL "matrix_output/M_counter2_q_21" BEL
+        "matrix_output/M_counter2_q_16" BEL "matrix_output/M_counter2_q_17"
+        BEL "matrix_output/M_counter2_q_22" BEL
+        "matrix_output/M_counter2_q_18" BEL "matrix_output/M_counter2_q_23"
+        BEL "matrix_output/M_counter2_q_24" BEL
+        "matrix_output/M_counter2_q_19" BEL "matrix_output/M_counter2_q_25"
+        BEL "matrix_output/M_counter4_q_10" BEL
+        "matrix_output/M_counter4_q_11" BEL "matrix_output/M_counter4_q_12"
+        BEL "matrix_output/M_counter4_q_13" BEL
+        "matrix_output/M_counter4_q_14" BEL "matrix_output/M_counter4_q_15"
+        BEL "matrix_output/M_counter4_q_20" BEL
+        "matrix_output/M_counter4_q_16" BEL "matrix_output/M_counter4_q_21"
+        BEL "matrix_output/M_counter4_q_22" BEL
+        "matrix_output/M_counter4_q_17" BEL "matrix_output/M_counter4_q_18"
+        BEL "matrix_output/M_counter4_q_23" BEL
+        "matrix_output/M_counter4_q_19" BEL "matrix_output/M_counter4_q_24"
+        BEL "matrix_output/M_regs_q_0" BEL "matrix_output/M_regs_q_1" BEL
+        "matrix_output/M_regs_q_2" BEL "matrix_output/M_regs_q_4" BEL
+        "matrix_output/M_regs_q_5" BEL "matrix_output/M_regs_q_6" BEL
+        "matrix_output/M_regs_q_8" BEL "matrix_output/M_regs_q_9" BEL
+        "matrix_output/M_counter6_q_10" BEL "matrix_output/M_counter6_q_11"
+        BEL "matrix_output/M_counter6_q_12" BEL
+        "matrix_output/M_counter6_q_13" BEL "matrix_output/M_counter6_q_14"
+        BEL "matrix_output/M_counter6_q_15" BEL
+        "matrix_output/M_counter6_q_20" BEL "matrix_output/M_counter6_q_16"
+        BEL "matrix_output/M_counter6_q_21" BEL
+        "matrix_output/M_counter6_q_17" BEL "matrix_output/M_counter6_q_22"
+        BEL "matrix_output/M_counter6_q_18" BEL
+        "matrix_output/M_counter6_q_23" BEL "matrix_output/M_counter6_q_19"
+        BEL "matrix_output/M_state_q_FSM_FFd10" BEL
+        "matrix_output/M_state_q_FSM_FFd11" BEL
+        "matrix_output/M_state_q_FSM_FFd12" BEL
+        "matrix_output/M_state_q_FSM_FFd1" BEL
+        "matrix_output/M_state_q_FSM_FFd13" BEL
+        "matrix_output/M_state_q_FSM_FFd2" BEL
+        "matrix_output/M_state_q_FSM_FFd14" BEL
+        "matrix_output/M_state_q_FSM_FFd3" BEL
+        "matrix_output/M_state_q_FSM_FFd15" BEL
+        "matrix_output/M_state_q_FSM_FFd4" BEL
+        "matrix_output/M_state_q_FSM_FFd16" BEL
+        "matrix_output/M_state_q_FSM_FFd5" BEL
+        "matrix_output/M_state_q_FSM_FFd17" BEL
+        "matrix_output/M_state_q_FSM_FFd6" BEL
+        "matrix_output/M_state_q_FSM_FFd18" BEL
+        "matrix_output/M_state_q_FSM_FFd7" BEL
+        "matrix_output/M_state_q_FSM_FFd19" BEL
+        "matrix_output/M_state_q_FSM_FFd8" BEL
+        "matrix_output/M_state_q_FSM_FFd9" BEL "matrix_output/M_temp2_q_0" BEL
+        "matrix_output/M_temp2_q_1" BEL "matrix_output/M_temp2_q_2" BEL
+        "matrix_output/M_temp2_q_3" BEL "matrix_output/M_temp2_q_4" BEL
+        "matrix_output/M_temp2_q_5" BEL "matrix_output/M_temp2_q_6" BEL
+        "matrix_output/M_temp2_q_7" BEL "clk_BUFGP/BUFG" BEL
+        "reset_cond/M_stage_q_3" BEL "reset_cond/M_stage_q_2" BEL
+        "reset_cond/M_stage_q_1" BEL "reset_cond/M_stage_q_0" BEL
+        "edge_detector/M_last_q" BEL "dec_ctr/dctr_gen_0[3].dctr/M_val_q_1"
+        BEL "dec_ctr/dctr_gen_0[3].dctr/M_val_q_0" BEL
+        "dec_ctr/dctr_gen_0[3].dctr/M_val_q_2" BEL
+        "dec_ctr/dctr_gen_0[3].dctr/M_val_q_3" BEL
+        "dec_ctr/dctr_gen_0[2].dctr/M_val_q_0" BEL
+        "dec_ctr/dctr_gen_0[2].dctr/M_val_q_3" BEL
+        "dec_ctr/dctr_gen_0[2].dctr/M_val_q_1" BEL
+        "dec_ctr/dctr_gen_0[2].dctr/M_val_q_2" BEL
+        "dec_ctr/dctr_gen_0[1].dctr/M_val_q_2" BEL
+        "dec_ctr/dctr_gen_0[1].dctr/M_val_q_0" BEL
+        "dec_ctr/dctr_gen_0[1].dctr/M_val_q_1" BEL
+        "dec_ctr/dctr_gen_0[1].dctr/M_val_q_3" BEL
+        "dec_ctr/dctr_gen_0[0].dctr/M_val_q_0" BEL
+        "dec_ctr/dctr_gen_0[0].dctr/M_val_q_3" BEL
+        "dec_ctr/dctr_gen_0[0].dctr/M_val_q_1" BEL
+        "dec_ctr/dctr_gen_0[0].dctr/M_val_q_2" BEL "seg/ctr/M_ctr_q_0" BEL
+        "seg/ctr/M_ctr_q_1" BEL "seg/ctr/M_ctr_q_2" BEL "seg/ctr/M_ctr_q_3"
+        BEL "seg/ctr/M_ctr_q_4" BEL "seg/ctr/M_ctr_q_5" BEL
+        "seg/ctr/M_ctr_q_6" BEL "seg/ctr/M_ctr_q_7" BEL "seg/ctr/M_ctr_q_8"
+        BEL "seg/ctr/M_ctr_q_9" BEL "seg/ctr/M_ctr_q_10" BEL
+        "seg/ctr/M_ctr_q_11" BEL "seg/ctr/M_ctr_q_12" BEL "seg/ctr/M_ctr_q_13"
+        BEL "seg/ctr/M_ctr_q_14" BEL "seg/ctr/M_ctr_q_15" BEL
+        "seg/ctr/M_ctr_q_16" BEL "seg/ctr/M_ctr_q_17";
+TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+SCHEMATIC END;
+

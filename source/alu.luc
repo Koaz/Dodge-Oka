@@ -1,0 +1,62 @@
+module alu (
+    // Inputs
+    input alufn[6],
+    input a[16],
+    input b[16],
+    
+    // Outputs
+    output alu_out[16],
+    output z,
+    output v,
+    output n
+  ) {
+
+  // Instantiate modules making up ALU
+  adder alu_adder;
+  comparator alu_comparator;
+  shifter alu_shifter;
+  boolean alu_boolean;
+  
+  always {
+    // Link modules of ALU together
+    
+    // Link inputs to adder, links z, v and n of adder to ALU
+    alu_adder.b_adder = b;
+    alu_adder.a_adder = a;
+    alu_adder.alufn = alufn[1:0];
+    z = alu_adder.z_adder;
+    v = alu_adder.v_adder;
+    n = alu_adder.n_adder;
+    
+    // Link z, v and n of adder to comparator, links ALUFN to comparator
+    alu_comparator.a = a;
+    alu_comparator.b = b;
+    alu_comparator.alufn = alufn[5:0];
+    
+    // Links inputs to boolean
+    alu_boolean.a = a;
+    alu_boolean.b = b;
+    alu_boolean.alufn = alufn[3:0];
+    
+    // Links inputs to shifter
+    alu_shifter.a_shift = a;
+    alu_shifter.b_shift = b[2:0];
+    alu_shifter.alufn = alufn[1:0];
+    
+    // ALUFN[5:4] selects module be used, output of ALU is based on operation performed
+    case (alufn[5:4]) {
+      b00:
+        alu_out = alu_adder.adder_out;
+      b01:
+        alu_out = alu_boolean.boolean;
+      b10:
+        alu_out = alu_shifter.shift_out;
+      b11:
+        alu_out = alu_comparator.com_out;
+      // Default case is 0
+      default:
+        alu_out = 16b0;
+    }
+    
+  }
+}

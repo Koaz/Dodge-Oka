@@ -1,0 +1,24 @@
+module shifter (
+    // Inputs 
+    input a_shift[16],
+    input b_shift[3],
+    input alufn[2],
+    
+    // Output
+    output shift_out[16]
+
+  ) {
+
+  always {
+    shift_out = a_shift;                                  // Else dont shift 
+    
+    if (alufn[0] == 0 & alufn[1] == 0)                    // If input = 00, shift left
+      shift_out = a_shift << b_shift[2:0];  
+      
+    if (alufn[0] == 1 & alufn[1] == 0)                    // if input = 01, shift right
+      shift_out = a_shift >> b_shift[2:0];
+            
+    if (alufn[0] == 1 & alufn[1] == 1)                    // if input = 11, shift right with sign extension
+      shift_out = $signed(a_shift) >>> b_shift[2:0];      // ">>>" is signed shifting  
+  }
+}

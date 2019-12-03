@@ -1,0 +1,35 @@
+module comparator (
+    //Inputs
+    input alufn[6],
+    input a[16],
+    input b[16],  
+    
+    //Output
+    output com_out[16]
+  ) {
+
+  sig out[16];
+  
+  always {
+    out[0] = b0;                              // Sets LSB to 0 if ALUFN[2:1] are 00
+    
+    if (alufn[1] == 1 & alufn[2] == 0) {      // Equal to
+      if (a==b) {
+        out[0] = b1;
+      }
+    }
+    if (alufn[1] == 0 & alufn[2] == 1) {      // Less than
+      if (a < b) {
+        out[0] = b1;
+      }
+    }
+    if (alufn[1] == 1 & alufn[2] == 1) {      // Less than or equal to
+      if (a <= b) {
+        out[0] = b1;
+      }
+    }
+    
+    out[15:1] = 16b0;                       // Set 7 other bits to 0
+    com_out = out;
+  }
+}

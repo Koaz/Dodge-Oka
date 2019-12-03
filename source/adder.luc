@@ -1,0 +1,46 @@
+module adder (
+    //Inputs
+    input alufn[2],
+    input a_adder[16],
+    input b_adder[16],
+    
+    //Outputs
+    output z_adder,
+    output v_adder,
+    output n_adder,
+    output adder_out[16]
+  ) {
+
+  sig out[16];                                  // 8-bit output
+  
+  always {
+    
+    case(alufn[1:0]) {
+      b00:                                     // Addition
+        out = a_adder + b_adder;
+      
+      b10:                                     // Multiplication
+        out = a_adder * b_adder;
+      
+      b01:                                     // Subtraction
+        out = a_adder - b_adder;
+      
+      b11:                                     // Modulo
+        if (b_adder == 16b0) {                  // Divide by zero case
+          out = a_adder;
+        } else {
+          out = a_adder - (a_adder / b_adder) * b_adder;
+        }
+        
+      default:
+        out = a_adder + b_adder;               // Default operation is addition
+    }
+    
+    z_adder = ~|out;                                                                        // Z is NOR of output
+    v_adder = (a_adder[15] & (alufn[0] ^ b_adder[15]) & ~out[15]) | 
+              (~a_adder[15] & (alufn[0] ^ ~b_adder[15]) & out[15]);                            // Compare MSB of A, B and output
+    n_adder = out[15];                                                                       // N is true if MSB of output is 1
+    adder_out = out;
+        
+  }
+}

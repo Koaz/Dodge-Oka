@@ -1,0 +1,70 @@
+/*so to light up each led on the matrix it requires a 24 bits signal, 
+the pwm for the to one led translates to 40 cycles of high & 15 cycles
+of low */
+module ws2812b #(
+    PIXEL_COUNT = 256 : PIXEL_COUNT > 0      // The number of LEDs in the chain.
+  )(
+    input clk,  // clock
+    input rst,  // reset
+    input color[8][8][24],         // RGB //mapping out the led matrix for convenient use
+    output pixel[$clog2(PIXEL_COUNT)],  // Index of the LED, with the color in color[24]
+    output led,    //Goes to the first LED in the chain
+    input update
+  ) {
+  
+  .clk(clk) {
+    .rst(rst) {
+      fsm state = {SEND_PIXEL, RESET};
+      dff pixel_ctr[$clog2(PIXEL_COUNT)];
+      dff bit_ctr[5]; //timing delays to send signals
+      dff ctr[6]; 
+      dff rst_ctr [$clog2(2500)]; //
+      dff row[3]; //additional dff to map out the matrix
+      dff col[3];  //additional dff to map out the matrix
+    }
+  }
+  
+  sig bits[24];        //R
+  
+  always {
+    led = 0;
+    
+    pixel = pixel_ctr.q;
+    case (state.q) {
+      state.SEND_PIXEL:
+        if (color[row.q][col.q][bit_ctr.q])
+          led = ctr.q < 40;
+        else
+          led = ctr.q < 15;
+        
+        ctr.d = ctr.q + 1;
+        if (ctr.q == 55){
+          ctr.d = 0;
+          
+          bit_ctr.d = bit_ctr.q + 1;
+          if (bit_ctr.q == 23) {
+            bit_ctr.d = 0;
+            pixel_ctr.d = pixel_ctr.q + 1;
+          if(col.q== 7){
+                row.d = row.q +1; //to move to the next row if the leds on the matrix are alr addressed
+              }
+            col.d =col.q + 1; //address led by led across the column
+            if (pixel_ctr.q == PIXEL_COUNT-1) {
+              pixel_ctr.d = 0;
+              state.d = state.RESET;
+            }
+          }
+        }
+      
+      state.RESET: //reset is always happening, so update is always 1
+        if (&rst_ctr.q) {
+          if (update) {
+            rst_ctr.d = 0;
+            state.d = state.SEND_PIXEL;
+          }
+        } else {
+          rst_ctr.d = rst_ctr.q + 1;
+        }
+    }
+  }
+}

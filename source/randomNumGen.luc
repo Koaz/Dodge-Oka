@@ -1,0 +1,57 @@
+module randomNumGen (
+    input clk,  // clock
+    input rst,  // reset
+
+    output out[8] //output a random 8 bit number
+  ) {
+  
+  var i;
+    .clk(clk) {
+    dff randseed[32]; //purpose is to cycle through different seed numbers every cycle, so that new combinations are generated every cycle
+    .rst(rst)
+    {
+      dff counter[26]; //
+      dff temp[8];
+    }
+  }
+    .clk(clk){
+    .rst(rst){
+    
+       pn_gen rng;  //initialise the random number generator
+       
+    }
+  }
+
+  always {
+    rng.seed = randseed.q;
+    randseed.d = randseed.q + 1;
+    rng.next = 1;
+    counter.d = counter.q+1;
+    if (counter.q[25] == 1)   //generate a new combination around every 1 second
+    {
+        counter.d = 0;
+        temp.d = rng.num[23:16];    //taking 8 bits from 23 to 16
+    }
+    else{
+      temp.d = temp.q;
+    }
+    
+    out = temp.q;
+    
+    for(i = 0;i<8;i++){
+      if(temp.q[i] & (i==0 |i==2 | i==4 | i==6)){     // this for-loop controls the combinations generated so that the game is still playable
+        if(i == 2 & temp.q[0]){                       //if not it will be very and even all 8 bits could be generated rendering the game unplayable      
+          out[0] = 0;
+          out[1] = 1;
+        } else if (i == 4 & temp.q[2]){
+          out[4] = 0;
+        } else if (i == 6 & temp.q[4]){
+          out[6] = 0;
+          out[5] = 1;
+        } 
+      } else {
+        out[i] = 0;
+      }
+    }
+  }
+}

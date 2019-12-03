@@ -1,0 +1,12 @@
+NET "rightButton" LOC = P75;
+NET "rightButton" IOSTANDARD = LVTTL;
+NET "rightButton" PULLDOWN;
+NET "leftButton" LOC = P117;
+NET "leftButton" IOSTANDARD = LVTTL;
+NET "leftButton" PULLDOWN;
+NET "startButton" LOC = P137;
+NET "startButton" IOSTANDARD = LVTTL;
+NET "startButton" PULLDOWN;
+NET "outled" LOC = P142;
+NET "outled" IOSTANDARD = LVTTL;
+NET "outled" PULLDOWN;
